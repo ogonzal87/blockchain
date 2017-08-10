@@ -1,22 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const SHA256 = require('crypto-js/sha256');
 
 
@@ -60,4 +41,5 @@ oscarCoin.addBlock(new Block(1, "1/10/2017", {amount: 4}));
 oscarCoin.addBlock(new Block(2, "1/12/2017", {amount: 10}));
 
 
-console.log(JSON.stringify(oscarCoin, null, 4))
+console.log(JSON.stringify(oscarCoin, null, 4));
+
