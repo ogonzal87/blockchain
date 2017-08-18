@@ -33,6 +33,22 @@ class Blockchain {
         newBlock.hash = newBlock.calculateHash();
         this.chain.push(newBlock);
     }
+
+    isChainValid() {
+        for(let i = 1; i< this.chain.lenght; i++) {
+            const currentBlock = this.chain[i];
+            const previousBlock= this.chain[i - 1];
+
+            if(currentBlock.hash !== currentBlock.caltulateHash()) {
+                return false;
+            }
+
+            if(currentBlock.previousHash !== previousBlock.hash){
+                return false;
+            } 
+        }
+        return true;
+    }
 }
 
 
@@ -40,6 +56,7 @@ let oscarCoin = new Blockchain();
 oscarCoin.addBlock(new Block(1, "1/10/2017", {amount: 4}));
 oscarCoin.addBlock(new Block(2, "1/12/2017", {amount: 10}));
 
+console.log('Is blochain valid? ' + oscarCoin.isChainValid());
 
-console.log(JSON.stringify(oscarCoin, null, 4));
+//console.log(JSON.stringify(oscarCoin, null, 4));
 
